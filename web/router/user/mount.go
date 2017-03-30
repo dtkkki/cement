@@ -11,6 +11,11 @@ func MountUser(group *echo.Group) {
 	_ = users
 
 	admin := group.Group("/admin")
-	admin.GET("/user/list", user.HttpCemetUserListAPI)
+	admin.GET("/user/list", user.HTTPCementUserListAPI)
+	admin.GET("/events/list", user.HTTPCementAdminEventsAPI)
+
+	events := group.Group("/event")
+	events.POST("/user/project", user.HTTPCementUserProjectAPI)
+
 	_ = admin
 }
