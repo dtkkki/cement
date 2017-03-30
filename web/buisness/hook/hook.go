@@ -1,12 +1,13 @@
-package handlers
+package hook
 
 import (
+	"io/ioutil"
+
 	"github.com/dtkkki/cement/hooks"
 	"github.com/dtkkki/cement/hooks/github"
 	"github.com/dtkkki/cement/hooks/gitlab"
 	"github.com/dtkkki/cement/toolkits/log"
 	"github.com/labstack/echo"
-	"io/ioutil"
 )
 
 func newHookServer(parser hooks.EventParser) echo.HandlerFunc {

@@ -1,6 +1,7 @@
 package web
 
 import (
+	"github.com/dtkkki/cement/web/router/hook"
 	"github.com/labstack/echo"
 )
 
@@ -14,6 +15,11 @@ func App() *echo.Echo {
 
 func init() {
 	// Init routes
-	route(app)
+	mountAPI(app)
 	// Init middlewares
+}
+
+func mountAPI(e *echo.Echo) {
+	group := e.Group("/apiv1")
+	hook.MountHook(group)
 }
